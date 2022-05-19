@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package B3_OverviewSwing;
+package B4_5_OverviewCollectionLoadDataDong;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
@@ -12,13 +15,25 @@ import javax.swing.table.TableModel;
  * @author hangnt
  */
 public class OverviewSwingFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form OverviewSwingFrame
-     */
+    
+    private DefaultTableModel dtm;
+    private List<NhanVien> lists;
+    
     public OverviewSwingFrame() {
         initComponents();
-        // code 
+        lists = new ArrayList<>();
+        // custom header
+        String[] headers = {"Tên", "Loại", "Giới tính", "Sở thích"};
+        jTable1.setModel(dtm = new DefaultTableModel());
+        // set vao header
+        dtm.setColumnIdentifiers(headers);
+        // load 5 phan tu
+        lists.add(new NhanVien("ten1", "Loai 1", true, "Ăn"));
+        lists.add(new NhanVien("ten4", "Loai 2", true, "Lăn"));
+        lists.add(new NhanVien("ten2", "Loai 1", false, "Ăn"));
+        lists.add(new NhanVien("ten3", "Loai 2", false, "Ăn Lăn"));
+        lists.add(new NhanVien("ten5", "Loai 1", true, "Ăn"));
+        showData(lists);
     }
 
     /**
@@ -98,7 +113,7 @@ public class OverviewSwingFrame extends javax.swing.JFrame {
                 {"bbb", "Loaij 3", "Nam", "Lăn"}
             },
             new String [] {
-                "Tên", "Loại", "Giới tính", "Sở thích"
+                "Tên1", "Loại1", "Giới tính1", "Sở thích1"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -195,7 +210,7 @@ public class OverviewSwingFrame extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         txtName.setText("");
         cbbLoai.setSelectedIndex(0);
-        buttonGroup1.clearSelection();        
+        buttonGroup1.clearSelection();
         cbAn.setSelected(false);
         cbLan.setSelected(false);
     }//GEN-LAST:event_btnClearActionPerformed
@@ -218,8 +233,10 @@ public class OverviewSwingFrame extends javax.swing.JFrame {
         if (cbLan.isSelected()) {
             soThich += " " + "Lan";
         }
-        String result = ten + " - " + loai + " - " + gender + " - " + soThich;
-        JOptionPane.showMessageDialog(rootPane, result);
+        // add data vao table
+        NhanVien nhanVien = new NhanVien(ten, loai, isGeder, soThich);
+        lists.add(nhanVien);
+        showData(lists);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -239,6 +256,13 @@ public class OverviewSwingFrame extends javax.swing.JFrame {
             radioButtonNu.setSelected(true);
         }
     }//GEN-LAST:event_jTable1MouseClicked
+    
+    private void showData(List<NhanVien> lists) {
+        dtm.setColumnCount(0);
+        for (NhanVien nhanVien : lists) {
+            dtm.addRow(nhanVien.toRowData());
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -265,6 +289,7 @@ public class OverviewSwingFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(OverviewSwingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
