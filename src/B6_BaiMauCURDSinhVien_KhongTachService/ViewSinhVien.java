@@ -1,7 +1,8 @@
-package B6_BaiMauCURDSinhVien;
+package B6_BaiMauCURDSinhVien_KhongTachService;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -333,13 +334,17 @@ public class ViewSinhVien extends javax.swing.JFrame {
         } else {
             gioiTinh = 2;
         }
+        if (maSV.length() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Do dai rong");
+        } else {
+            // Khoi tao 1 doi tuong va gan gia tri 
+            SinhVien sinhVien = new SinhVien(maSV, ten, Integer.valueOf(tuoi), diaChi, gioiTinh);
+            // add vao list
+            listSinhViens.add(sinhVien);
+            // hien thi len table
+            showDataTable(listSinhViens);
+        }
 
-        // Khoi tao 1 doi tuong va gan gia tri 
-        SinhVien sinhVien = new SinhVien(maSV, ten, Integer.valueOf(tuoi), diaChi, gioiTinh);
-        // add vao list
-        listSinhViens.add(sinhVien);
-        // hien thi len table
-        showDataTable(listSinhViens);
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void tbHienThiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbHienThiMouseClicked
@@ -360,9 +365,9 @@ public class ViewSinhVien extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String searchName = txtSearch.getText();
-        List<SinhVien>listSearch = new ArrayList<>();
+        List<SinhVien> listSearch = new ArrayList<>();
         for (SinhVien sv : listSinhViens) {
-            if(sv.getTen().contains(searchName)){
+            if (sv.getTen().contains(searchName)) {
                 // khi tim thay => add vao list moi
                 listSearch.add(sv);
             }
