@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        // https://openplanning.net/10175/java-regular-expression
+//        https://github.com/AnhDT0407/Course-JavaCore/blob/master/Java-Lesson/Java%208/1.%20Lamda%20Expressions/3.%20So%20s%C3%A1nh%20m%E1%BA%A1nh%20m%E1%BA%BD%20v%E1%BB%9Bi%20Lambda.md
         Scanner sc = new Scanner(System.in);
         try {
             // vut dong nghi ngo khi xay ra loi
