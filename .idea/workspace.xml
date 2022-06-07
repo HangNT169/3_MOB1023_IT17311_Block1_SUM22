@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb6269a8-549d-4bf2-9612-0a24d48e34fe" name="Changes" comment="Init project" />
+    <list default="true" id="cb6269a8-549d-4bf2-9612-0a24d48e34fe" name="Changes" comment="Init project">
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +55,7 @@
       <workItem from="1653529268585" duration="7000" />
       <workItem from="1653622368052" duration="5000" />
       <workItem from="1653961423843" duration="12000" />
+      <workItem from="1654134409630" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="Init project">
       <created>1651682022167</created>

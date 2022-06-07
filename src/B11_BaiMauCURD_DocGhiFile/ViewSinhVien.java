@@ -157,6 +157,7 @@ public class ViewSinhVien extends javax.swing.JFrame {
 
         buttonGroup1.add(radioNam);
         radioNam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        radioNam.setSelected(true);
         radioNam.setText("Nam");
 
         buttonGroup1.add(radioNu);
